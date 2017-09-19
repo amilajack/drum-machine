@@ -23,7 +23,7 @@
         :value="pattern[i][j].active" 
         @input="val => pattern[i][j].active = val" 
         :highlight="currentStep==j" />
-      <knob min="0.01" max="0.9"
+      <knob min="0" max="0.9"
       v-model="instruments[i].gain" />
       <knob min="60" max="8800"
       v-model="instruments[i].freq" />
@@ -124,7 +124,6 @@ export default {
       noiseVol.connect(mainGainNode)
       whiteNoise.start(startTime);
       whiteNoise.stop(startTime+instrument.decay)
-
       mainGainNode.gain.value = instrument.gain
       mainGainNode.gain.exponentialRampToValueAtTime(0.01, startTime+instrument.decay)
 
