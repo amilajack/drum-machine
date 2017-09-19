@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'knob',
-  props: ['value','min','max'],
+  props: ['max','min','value','step'],
   data () {
     return {
       internalValue: this.mapNumber(this.value, this.min, this.max, 0, 100),
