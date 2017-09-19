@@ -31,8 +31,8 @@ export default {
   }
 
   .led.lit:before{
-    background-color: #89C70A;
-    box-shadow: 0px 0px 7px 0px #5F8B03;
+    background-color: #FF762B;
+    box-shadow: 0px 0px 7px 0px #FF762B;
   }
 </style>
 

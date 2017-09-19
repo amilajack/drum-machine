@@ -33,12 +33,10 @@ export default {
   .stepbutton.active{
     border-bottom-width: 1px;
     box-shadow: 0px 1px 0px 1px rgba(0,0,0,0.3), inset 0px 0px 0px 3px rgba(0,0,0,0.1);;
-    background-color: #B4BDA0;
+    background-color: #BAC2AB;
 
 }
-  .stepbutton.highlight{
-    /* height: 23px; */
-  }
+
 
 
 </style>

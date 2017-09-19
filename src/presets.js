@@ -417,8 +417,8 @@ module.exports.presets = [
       },
       {
         freq: 251.8481528161956,
-        gain: 0.693,
-        decay: 0.3187758489801681,
+        gain: 0.1,
+        decay: 0.15,
         endPitch: 0.7521186382742788,
         sineNoiseMix: 0.01
       }
