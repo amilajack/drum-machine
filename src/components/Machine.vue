@@ -34,6 +34,8 @@
       <knob min="0.01" max="1"
       v-model="instruments[i].sineNoiseMix" />
     </div>
+    <span class="knobLabel">Presets:</span>
+    <machine-button v-for="(preset,i) in presets" :key="i" @click="loadPreset(preset)">{{ preset.name }} </machine-button>
   </div>
 </template>
 
@@ -42,6 +44,8 @@ import StepButton from './StepButton'
 import Knob from './Knob'
 import Led from './Led'
 import MachineButton from './MachineButton'
+import _ from 'lodash'
+import presets from '../presets'
 
 let audioContext = new AudioContext()
 
@@ -67,7 +71,8 @@ export default {
       nextStepTime: 0,
       playing: true,
       tempo: 120,
-      audioTime: undefined
+      audioTime: undefined,
+      presets: presets.presets
     }
   },
   computed: {
@@ -78,6 +83,12 @@ export default {
   methods:{
     pausePlay(){
       this.playing = !this.playing
+    },
+    loadPreset(preset){
+      let loadedPreset = _.cloneDeep(preset)
+      this.pattern = loadedPreset.pattern,
+      this.tempo = loadedPreset.tempo,
+      this.instruments = loadedPreset.instruments
     },
     randomizeSteps(){
       for (let inst in this.pattern){
