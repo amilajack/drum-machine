@@ -1,7 +1,8 @@
 <template>
   <div id="mainMachine">
+    <div id="title">TR-101</div>
     <div id="controls">
-      <machine-button @click="pausePlay" :pressed="playing">Play</machine-button>
+      <machine-button color="#B7C6D8" @click="pausePlay" :pressed="playing">Play</machine-button>
       <machine-button @click="randomizeSteps">Random steps</machine-button> 
       <machine-button @click="randomizeDrums">Random Drums</machine-button> 
       <machine-button @click="clearSteps">Clear all</machine-button>
@@ -35,7 +36,11 @@
       v-model="instruments[i].sineNoiseMix" />
     </div>
     <span class="knobLabel">Presets:</span>
-    <machine-button v-for="(preset,i) in presets" :key="i" @click="loadPreset(preset)">{{ preset.name }} </machine-button>
+    <machine-button 
+      v-for="(preset,i) in presets" 
+      :key="i" 
+      color="#D8BCB7"
+      @click="loadPreset(preset)">{{ preset.name }}</machine-button>
   </div>
 </template>
 
@@ -201,6 +206,12 @@ export default {
 </script>
 
 <style scoped>
+
+  #title{
+    font-size: 30px;
+    color: #555;
+    font-weight: bold;
+  }
 
   #mainMachine{
     margin: 0 auto;
