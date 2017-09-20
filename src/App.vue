@@ -18,7 +18,7 @@ export default {
 <style>
 #app{
   margin: 0 auto;
-  width: 900px;
+  width: 940px;
 }
 body {
   font-family: BlinkMacSystemFont,  sans-serif;

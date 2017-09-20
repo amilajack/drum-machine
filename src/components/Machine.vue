@@ -34,6 +34,11 @@
       v-model="instruments[i].endPitch" />
       <knob min="0.01" max="1"
       v-model="instruments[i].sineNoiseMix" />
+      <machine-button
+        color="#D8BCB7"
+        :pressed="mutes[i]"
+        style="float: right;"
+        @click="mutes[i] = !mutes[i]">m</machine-button>
     </div>
     <span class="knobLabel">Presets:</span>
     <machine-button 
@@ -74,6 +79,7 @@ export default {
       secondsPerStep: 0,
       lastScheduledTime: 0,
       nextStepTime: 0,
+      mutes: [],
       playing: true,
       tempo: 120,
       audioTime: undefined,
@@ -94,6 +100,9 @@ export default {
       this.pattern = loadedPreset.pattern,
       this.tempo = loadedPreset.tempo,
       this.instruments = loadedPreset.instruments
+      for(let mute in this.mutes){
+        this.mutes[mute] = false
+      }
     },
     randomizeSteps(){
       for (let inst in this.pattern){
@@ -111,11 +120,14 @@ export default {
       }
     },    
     clearSteps(){
-       for (let inst in this.pattern){
+      for (let inst in this.pattern){
         for (let step in this.pattern[inst]){
           this.pattern[inst][step].active = false
         }
-      }     
+      }
+      for(let mute in this.mutes){
+        this.mutes[mute] = false
+      }
     },
     scheduleNote(instrument,startTime){
       let osc = audioContext.createOscillator()
@@ -159,11 +171,13 @@ export default {
         this.audioTime = audioContext.currentTime
         this.currentStep = Math.floor(this.audioTime/this.secondsPerStep % this.stepCount)
         for (let inst in this.pattern){
-          for (let step in this.pattern[inst]){
-            if (this.pattern[inst][step].active){
-              let schedule = this.getSchedule(step, this.audioTime)
-              if (schedule > 0 && schedule-this.audioTime<LOOK_AHEAD && schedule>this.lastScheduledTime){
-                this.scheduleNote(this.instruments[inst], schedule)
+          if(!this.mutes[inst]){
+            for (let step in this.pattern[inst]){
+              if (this.pattern[inst][step].active){
+                let schedule = this.getSchedule(step, this.audioTime)
+                if (schedule > 0 && schedule-this.audioTime<LOOK_AHEAD && schedule>this.lastScheduledTime){
+                  this.scheduleNote(this.instruments[inst], schedule)
+                }
               }
             }
           }
@@ -186,6 +200,7 @@ export default {
         endPitch: 0.01,
         sineNoiseMix: 0.01
       })
+      this.mutes.push(false)
       this.randomizeDrums()
     }
 
