@@ -4,7 +4,7 @@
     <circle class="mainCircle" cx="17" cy="15" r="13" 
       :class="{ active: active}" />
     <line x1="17" y1="15" x2="17" y2="3" :transform="knobRotation"/>
-    <text x="17" y="43">{{value | round}}</text>
+    <text x="17" y="43">{{value | round}}</text>   
   </svg>  
 </template>
 
@@ -17,8 +17,17 @@ export default {
       internalValue: this.mapNumber(this.value, this.min, this.max, 0, 100),
       active: false,
       initialX: undefined,
-      initialY: undefined
+      initialY: undefined,
+      shiftPressed: false
     }
+  },
+  created () {
+    document.addEventListener('keydown', (e) => {
+      if (e.key=='Shift') this.shiftPressed = true
+    })
+    document.addEventListener('keyup', (e) => {
+      if (e.key=='Shift') this.shiftPressed = false
+    })
   },
   watch: {
     value: function(newVal, oldVal){
@@ -55,10 +64,17 @@ export default {
       document.onmousemove = (e) => { // move according to whatever direction is more significant
         if (Math.abs(e.pageX - this.initialX)> Math.abs(e.pageY - this.initialY))
         {
-          this.internalValue = initialValue + e.pageX - this.initialX
-
+          if(this.shiftPressed){
+            this.internalValue = initialValue + (e.pageX - this.initialX)/10
+          } else {
+            this.internalValue = initialValue + e.pageX - this.initialX
+          }
         } else {
-          this.internalValue = initialValue + e.pageY - this.initialY
+          if(this.shiftPressed){
+            this.internalValue = initialValue + (e.pageY - this.initialY)/10
+          } else {
+            this.internalValue = initialValue + e.pageY - this.initialY
+          }
         }
         if (this.internalValue>100) this.internalValue = 100
         if (this.internalValue<0) this.internalValue = 0
