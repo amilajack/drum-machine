@@ -2,10 +2,33 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>learn-audio</title>
+    <meta name=“description” content="A synth drum machine">
+    <meta name="author" content="Ohad Ron">
+    
+    <title>TR-101 - Drum Machine</title>
+    <style>
+      #footer{
+        text-align: center;
+        margin-top: 10px;
+        color: #555;
+        font-size: 12px;
+      }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106774320-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106774320-1');
+    </script>
   </head>
   <body>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="footer">
+      Made by <a href="https://ohadron.com">Ohad Ron</a> | <a href="https://gitlab.com/inverted3/drum-machine">Code on Gitlab</a>
+    </div>
+
+
   </body>
 </html>

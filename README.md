@@ -1,6 +1,8 @@
-# learn-audio
+# TR-101
 
-> Drum machine
+A Drum machine. Made with [Vue](vuejs.org) and the [web audio api](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+
+Demo: inverted3.gitlab.io/drum-machine/
 
 ## Build Setup
 
@@ -17,5 +19,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
