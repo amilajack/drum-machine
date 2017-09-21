@@ -78,7 +78,7 @@ module.exports.presets = [
     instruments: [
       {
         freq: 60,
-        gain: 0.43399999999999955,
+        gain: 0.2,
         decay: 0.529875011255124,
         endPitch: 0.38536373359452647,
         sineNoiseMix: 0.01

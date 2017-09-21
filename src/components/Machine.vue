@@ -1,6 +1,9 @@
 <template>
   <div id="mainMachine">
-    <div id="title">TR-101</div>
+    <div id="title">
+      TR-101
+      <span class="smaller">A synth drum machine</span>
+    </div>
     <div id="controls">
       <machine-button color="#B7C6D8" @click="pausePlay" :pressed="playing">Play</machine-button>
       <machine-button @click="randomizeSteps">Random steps</machine-button> 
@@ -90,6 +93,9 @@ export default {
     instrumentCount(){
       return this.instruments.length
     }
+  },
+  mounted () {
+    this.loadPreset(this.presets[0])
   },
   methods:{
     pausePlay(){
@@ -213,8 +219,6 @@ export default {
       }
     }
 
- 
-
     this.updateAudioTime()
   }
 }
@@ -226,6 +230,11 @@ export default {
     font-size: 30px;
     color: #555;
     font-weight: bold;
+  }
+
+  #title .smaller{
+    font-size: 12px;
+    font-weight: normal;
   }
 
   #mainMachine{
