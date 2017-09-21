@@ -1,8 +1,8 @@
 # TR-101
 
-A Drum machine. Made with [Vue](vuejs.org) and the [web audio api](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+A Drum machine. Made with [Vue](https://vuejs.org) and the [web audio api](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
-Demo: inverted3.gitlab.io/drum-machine/
+Demo: [https://inverted3.gitlab.io/drum-machine/](https://inverted3.gitlab.io/drum-machine/)
 
 ## Build Setup
 
