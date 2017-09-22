@@ -60,7 +60,12 @@ import MachineButton from './MachineButton'
 import _ from 'lodash'
 import presets from '../presets'
 
-let audioContext = new AudioContext()
+let audioContext
+if(window.AudioContext) {
+  audioContext = new AudioContext()
+} else {
+  audioContext = new webkitAudioContext()
+}
 
 let bufferSize = 2 * audioContext.sampleRate,
     noiseBuffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate),
@@ -68,7 +73,6 @@ let bufferSize = 2 * audioContext.sampleRate,
 for (var i = 0; i < bufferSize; i++) {
     output[i] = Math.random() * 2 - 1;
 }
-
 
 export default {
   name: 'machine',
@@ -96,10 +100,12 @@ export default {
   },
   mounted () {
     this.loadPreset(this.presets[0])
+    if(!window.AudioContext) this.playing = false // Safari fix
   },
   methods:{
     pausePlay(){
       this.playing = !this.playing
+      audioContext.createOscillator().start(0,0,0.1)
     },
     loadPreset(preset){
       let loadedPreset = _.cloneDeep(preset)
@@ -142,23 +148,23 @@ export default {
 
       let oscVol = audioContext.createGain()
       osc.connect(oscVol)
-      oscVol.gain.value = (1-instrument.sineNoiseMix)*2
+      oscVol.gain.setValueAtTime((1-instrument.sineNoiseMix)*2, startTime)
       oscVol.connect(mainGainNode)
       mainGainNode.connect(audioContext.destination)
       osc.start(startTime)
       osc.stop(startTime+instrument.decay)
-      osc.frequency.value = instrument.freq
+      osc.frequency.setValueAtTime(instrument.freq, startTime)
       osc.frequency.exponentialRampToValueAtTime(instrument.freq*instrument.endPitch, startTime+instrument.decay)
 
       let noiseVol = audioContext.createGain()
       whiteNoise.buffer = noiseBuffer;
       whiteNoise.loop = true;
       whiteNoise.connect(noiseVol);
-      noiseVol.gain.value = instrument.sineNoiseMix*2
+      noiseVol.gain.setValueAtTime(instrument.sineNoiseMix*2, startTime)
       noiseVol.connect(mainGainNode)
       whiteNoise.start(startTime);
       whiteNoise.stop(startTime+instrument.decay)
-      mainGainNode.gain.value = instrument.gain
+      mainGainNode.gain.setValueAtTime(instrument.gain, startTime)
       mainGainNode.gain.exponentialRampToValueAtTime(0.01, startTime+instrument.decay)
 
 
