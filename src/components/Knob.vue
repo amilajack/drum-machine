@@ -1,5 +1,5 @@
 <template>
-  <svg width="34" height="50" class="knob" @mousedown="activate">
+  <svg width="34" height="50" class="knob" @mousedown="activate" @touchstart="activate">
     <circle class="shadow" cx="17" cy="17" r="16"></circle>
     <circle class="mainCircle" cx="17" cy="15" r="13" 
       :class="{ active: active}" />
@@ -18,6 +18,7 @@ export default {
       active: false,
       initialX: undefined,
       initialY: undefined,
+      initialDragValue: undefined,
       shiftPressed: false
     }
   },
@@ -55,36 +56,42 @@ export default {
       return result
     },
     activate(event){
-      this.initialX = event.pageX
-      this.initialY = event.pageY
-      
-      let initialValue = this.internalValue
+      this.initialX = event.pageX || event.changedTouches[0].pageX
+      this.initialY = event.pageY || event.changedTouches[0].pageY
       this.active = true
+      this.initialDragValue = this.internalValue
       document.onmouseup = this.deactivate
-      document.onmousemove = (e) => { // move according to whatever direction is more significant
-        if (Math.abs(e.pageX - this.initialX)> Math.abs(e.pageY - this.initialY))
+      document.addEventListener('touchend', this.deactivate)      
+      document.onmousemove = this.dragHandler
+      document.addEventListener('touchmove',this.dragHandler)
+    },
+    dragHandler(e){
+      let xLocation = e.pageX || e.changedTouches[0].pageX
+      let yLocation = e.pageY || e.changedTouches[0].pageY
+      if (Math.abs(xLocation - this.initialX)> Math.abs(yLocation - this.initialY))
         {
           if(this.shiftPressed){
-            this.internalValue = initialValue + (e.pageX - this.initialX)/10
+            this.internalValue = this.initialDragValue + (xLocation - this.initialX)/10
           } else {
-            this.internalValue = initialValue + e.pageX - this.initialX
+            this.internalValue = this.initialDragValue + xLocation - this.initialX
           }
         } else {
           if(this.shiftPressed){
-            this.internalValue = initialValue + (e.pageY - this.initialY)/10
+            this.internalValue = this.initialDragValue + (this.initialY-yLocation)/10
           } else {
-            this.internalValue = initialValue + e.pageY - this.initialY
+            this.internalValue = this.initialDragValue + this.initialY - yLocation
           }
         }
-        if (this.internalValue>100) this.internalValue = 100
-        if (this.internalValue<0) this.internalValue = 0
-        if(isNaN(this.internalValue)) this.internalValue = initialValue
-        this.$emit('input', this.mapNumber(this.internalValue, 0,100,this.min,this.max))
-      }
+      if (this.internalValue>100) this.internalValue = 100
+      if (this.internalValue<0) this.internalValue = 0
+      if(isNaN(this.internalValue)) this.internalValue = this.initialDragValue
+      this.$emit('input', this.mapNumber(this.internalValue, 0,100,this.min,this.max))
     },
     deactivate(){
       document.onmouseup = undefined
       document.onmousemove = undefined
+      document.removeEventListener('touchmove',this.dragHandler)
+      document.removeEventListener('touchend',this.deactivate)
       this.active = false
     }
   }
