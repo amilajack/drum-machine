@@ -73,13 +73,13 @@ export default {
           if(this.shiftPressed){
             this.internalValue = this.initialDragValue + (xLocation - this.initialX)/10
           } else {
-            this.internalValue = this.initialDragValue + xLocation - this.initialX
+            this.internalValue = this.initialDragValue + (xLocation - this.initialX)/3
           }
         } else {
           if(this.shiftPressed){
             this.internalValue = this.initialDragValue + (this.initialY-yLocation)/10
           } else {
-            this.internalValue = this.initialDragValue + this.initialY - yLocation
+            this.internalValue = this.initialDragValue + (this.initialY - yLocation)/3
           }
         }
       if (this.internalValue>100) this.internalValue = 100
