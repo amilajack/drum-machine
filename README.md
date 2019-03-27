@@ -8,14 +8,27 @@ Demo: [https://inverted3.gitlab.io/drum-machine/](https://inverted3.gitlab.io/dr
 
 ``` bash
 # install dependencies
-npm install
-
+yarn
 # serve with hot reload at localhost:8080
-npm run dev
-
+yarn dev
 # build for production with minification
-npm run build
-
+yarn build
 # build for production and view the bundle analyzer report
-npm run build --report
+yarn build --report
 ```
+
+## Planned Additions
+
+- [ ] Mobile support (touch interface for knobs)
+- [ ] Make tempo changes and pauses/plays restart from the same place (probably with some accumulator parameter)
+- [ ] Accent / velocity editing
+- [ ] Audio to keep running in the background (even when `requstAnimationFrame` isn't being called)
+- [ ] Different waveforms
+- [ ] Master volume
+- [ ] Filters (HP/LP)
+- [ ] Keyboard shortcuts
+- [ ] Shareable presets
+- [ ] Effects (distortion, delay, reverb)
+- [ ] Animated knob changes for preset loading / randomisation
+- [ ] Sampler capabilities
+- [ ] Knob configurable color and size

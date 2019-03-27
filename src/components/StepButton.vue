@@ -1,6 +1,6 @@
 <template>
   <span class="stepbutton" :class="{active: value, highlight: highlight}" @click="changeValue">
-    
+
   </span>
 </template>
 
@@ -36,8 +36,5 @@ export default {
     background-color: #BAC2AB;
 
 }
-
-
-
 </style>
 
