@@ -1,6 +1,6 @@
 module.exports.presets = [
   {
-    name: "Fish",
+    name: 'Fish',
     pattern: [
       [
         { active: true },
@@ -108,7 +108,7 @@ module.exports.presets = [
     tempo: 120
   },
   {
-    name: "Snake",
+    name: 'Snake',
     pattern: [
       [
         { active: true },
@@ -216,7 +216,7 @@ module.exports.presets = [
     tempo: 120
   },
   {
-    name: "Chicken",
+    name: 'Chicken',
     pattern: [
       [
         { active: true },
@@ -324,7 +324,7 @@ module.exports.presets = [
     tempo: 107.2
   },
   {
-    name: "Crow",
+    name: 'Crow',
     pattern: [
       [
         { active: true },
