@@ -6,13 +6,13 @@
     </div>
     <div id="controls">
       <machine-button color="#B7C6D8" @click="pausePlay" :pressed="playing">Play</machine-button>
-      <machine-button @click="randomizeSteps">Random steps</machine-button> 
-      <machine-button @click="randomizeDrums">Random Drums</machine-button> 
+      <machine-button @click="randomizeSteps">Random steps</machine-button>
+      <machine-button @click="randomizeDrums">Random Drums</machine-button>
       <machine-button @click="clearSteps">Clear all</machine-button>
       <span class="knobLabel">Tempo</span>
       <knob min="60" max="220" v-model="tempo" style="position: relative; top: 31px;"/>
     </div>
-    <led v-for="(step,i) in stepCount" :key="i" :active="i==currentStep" />
+    <led v-for="(step,i) in stepCount" :key="`stepCount-${i}`" :active="i==currentStep"></led>
     <div id="knobTitles">
         <li class="knobLabel">Gain</li>
         <li class="knobLabel">Pitch</li>
@@ -21,11 +21,11 @@
         <li class="knobLabel">Noise</li>
     </div>
     <div v-for="(inst,i) in instrumentCount" :key="i">
-      <step-button 
-        v-for="(step,j) in stepCount" 
-        :key="j" 
-        :value="pattern[i][j].active" 
-        @input="val => pattern[i][j].active = val" 
+      <step-button
+        v-for="(step,j) in stepCount"
+        :key="`instrumentCount-${j}`"
+        :value="pattern[i][j].active"
+        @input="val => pattern[i][j].active = val"
         :highlight="currentStep==j" />
       <knob min="0" max="0.9"
       v-model="instruments[i].gain" />
@@ -44,9 +44,9 @@
         @click="mutes[i] = !mutes[i]">m</machine-button>
     </div>
     <span class="knobLabel">Presets:</span>
-    <machine-button 
-      v-for="(preset,i) in presets" 
-      :key="i" 
+    <machine-button
+      v-for="(preset,k) in presets"
+      :key="`presets-${k}`"
       color="#D8BCB7"
       @click="loadPreset(preset)">{{ preset.name }}</machine-button>
   </div>
@@ -90,7 +90,7 @@ export default {
       playing: true,
       tempo: 120,
       audioTime: undefined,
-      presets: presets.presets
+      presets
     }
   },
   computed: {
@@ -130,7 +130,7 @@ export default {
         inst.endPitch = Math.random()*0.8+0.01
         inst.sineNoiseMix = Math.random()*1+0.01
       }
-    },    
+    },
     clearSteps(){
       for (let inst in this.pattern){
         for (let step in this.pattern[inst]){

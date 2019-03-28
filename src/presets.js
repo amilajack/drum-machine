@@ -1,4 +1,4 @@
-module.exports.presets = [
+export default [
   {
     name: 'Fish',
     pattern: [
