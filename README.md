@@ -11,6 +11,7 @@ See the [live demo here](https://amilajack.github.io/drum-machine/)
 ## Local Setup
 
 ``` bash
+# 💡 If you don't have yarn, run `npm install --global yarn`
 # Install dependencies
 yarn
 # Start development version of app locally
