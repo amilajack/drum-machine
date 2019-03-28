@@ -99,5 +99,8 @@
         "plugins": ["istanbul"]
       }
     }
+  },
+  "renovate": {
+    "extends": ["bliss"]
   }
 }
