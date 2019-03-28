@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import Machine from './components/Machine';
+import Machine from './components/Machine.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Machine
   }

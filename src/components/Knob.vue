@@ -1,17 +1,22 @@
 <template>
   <svg width="34" height="50" class="knob" @mousedown="activate" @touchstart="activate">
     <circle class="shadow" cx="17" cy="17" r="16"></circle>
-    <circle class="mainCircle" cx="17" cy="15" r="13" 
+    <circle class="mainCircle" cx="17" cy="15" r="13"
       :class="{ active: active}" />
     <line x1="17" y1="15" x2="17" y2="3" :transform="knobRotation"/>
-    <text x="17" y="43">{{value | round}}</text>   
-  </svg>  
+    <text x="17" y="43">{{value | round}}</text>
+  </svg>
 </template>
 
 <script>
 export default {
-  name: 'knob',
-  props: ['max','min','value','step'],
+  name: 'Knob',
+  filters: {
+    round(val){
+      return Math.floor(val*20)/20
+    }
+  },
+  props: ['max', 'min', 'value', 'step'],
   data () {
     return {
       internalValue: this.mapNumber(this.value, this.min, this.max, 0, 100),
@@ -22,37 +27,32 @@ export default {
       shiftPressed: false
     }
   },
-  created () {
-    document.addEventListener('keydown', (e) => {
-      if (e.key=='Shift') this.shiftPressed = true
-    })
-    document.addEventListener('keyup', (e) => {
-      if (e.key=='Shift') this.shiftPressed = false
-    })
-  },
-  watch: {
-    value: function(newVal, oldVal){
-      this.internalValue = this.mapNumber(newVal, this.min, this.max, 0, 100)
-    }
-  },
-  filters: {
-    round(val){
-      return Math.floor(val*20)/20
-    }
-  },
   computed:{
     knobRotation(){
-      let rotation = this.mapNumber(this.internalValue, 0,100,0,270)-135
-      return `rotate( ${rotation} 17 15)`
+      const rotation = this.mapNumber(this.internalValue, 0,100,0,270)-135;
+      return `rotate( ${rotation} 17 15)`;
     }
+  },
+  watch: {
+    value(newVal){
+      this.internalValue = this.mapNumber(newVal, this.min, this.max, 0, 100);
+    }
+  },
+  created () {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Shift') this.shiftPressed = true
+    })
+    document.addEventListener('keyup', (e) => {
+      if (e.key === 'Shift') this.shiftPressed = false
+    })
   },
   methods: {
     mapNumber(value,inputmin,inputmax,rangemin,rangemax){
-      rangemax = parseFloat(rangemax)
-      rangemin = parseFloat(rangemin)
-      inputmax = parseFloat(inputmax)
-      inputmin = parseFloat(inputmin)
-      let result = (value- inputmin) * (rangemax - rangemin) / (inputmax - inputmin) + rangemin;
+      const newRangeMax = parseFloat(rangemax)
+      const newRangeMin = parseFloat(rangemin)
+      const newInputMax = parseFloat(inputmax)
+      const newInputMin = parseFloat(inputmin)
+      const result = (value- inputmin) * (newRangeMax - newRangeMin) / (newInputMax - newInputMin) + newRangeMin;
       return result
     },
     activate(event){
@@ -61,30 +61,28 @@ export default {
       this.active = true
       this.initialDragValue = this.internalValue
       document.onmouseup = this.deactivate
-      document.addEventListener('touchend', this.deactivate)      
+      document.addEventListener('touchend', this.deactivate)
       document.onmousemove = this.dragHandler
       document.addEventListener('touchmove',this.dragHandler)
     },
     dragHandler(e){
-      let xLocation = e.pageX || e.changedTouches[0].pageX
-      let yLocation = e.pageY || e.changedTouches[0].pageY
+      const xLocation = e.pageX || e.changedTouches[0].pageX
+      const yLocation = e.pageY || e.changedTouches[0].pageY
       if (Math.abs(xLocation - this.initialX)> Math.abs(yLocation - this.initialY))
         {
           if(this.shiftPressed){
             this.internalValue = this.initialDragValue + (xLocation - this.initialX)/10
           } else {
-            this.internalValue = this.initialDragValue + (xLocation - this.initialX)/3
+            this.internalValue = this.initialDragValue + (xLocation - this.initialX)/2
           }
-        } else {
-          if(this.shiftPressed){
+        } else if(this.shiftPressed){
             this.internalValue = this.initialDragValue + (this.initialY-yLocation)/10
           } else {
-            this.internalValue = this.initialDragValue + (this.initialY - yLocation)/3
+            this.internalValue = this.initialDragValue + (this.initialY - yLocation)/2
           }
-        }
       if (this.internalValue>100) this.internalValue = 100
       if (this.internalValue<0) this.internalValue = 0
-      if(isNaN(this.internalValue)) this.internalValue = this.initialDragValue
+      if (Number.isNaN(this.internalValue)) this.internalValue = this.initialDragValue
       this.$emit('input', this.mapNumber(this.internalValue, 0,100,this.min,this.max))
     },
     deactivate(){
