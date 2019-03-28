@@ -11,14 +11,12 @@ See the [live demo here](https://amilajack.github.io/drum-machine/)
 ## Local Setup
 
 ``` bash
-# install dependencies
+# Install dependencies
 yarn
-# serve with hot reload at localhost:8080
-yarn dev
-# build for production with minification
+# Start development version of app locally
+yarn start
+# Build optimized production version of the app
 yarn build
-# build for production and view the bundle analyzer report
-yarn build --report
 ```
 
 ## Planned Additions
