@@ -5,7 +5,7 @@
   "author": "Amila Welihinda <amilajack@gmail.com>",
   "private": true,
   "scripts": {
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --public-url /drum-machine",
     "deploy": "gh-pages -d dist",
     "lint": "eslint . --ignore-path .gitignore",
     "start": "parcel index.html"

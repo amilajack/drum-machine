@@ -1,6 +1,6 @@
 # TR-101
 
-![demo](static/demo.jpg)
+[![demo](static/demo.jpg)](https://amilajack.github.io/drum-machine/)
 
 A Drum machine. Made with [Vue](https://vuejs.org) and the [web audio api](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
