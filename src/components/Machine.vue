@@ -70,7 +70,7 @@ if(window.AudioContext) {
 let bufferSize = 2 * audioContext.sampleRate,
     noiseBuffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate),
     output = noiseBuffer.getChannelData(0);
-for (var i = 0; i < bufferSize; i++) {
+for (var i = 0; i < bufferSize; i+=1) {
     output[i] = Math.random() * 2 - 1;
 }
 
@@ -108,7 +108,7 @@ export default {
       audioContext.createOscillator().start(0,0,0.1)
     },
     loadPreset(preset){
-      let loadedPreset = _.cloneDeep(preset)
+      const loadedPreset = _.cloneDeep(preset)
       this.pattern = loadedPreset.pattern,
       this.tempo = loadedPreset.tempo,
       this.instruments = loadedPreset.instruments
@@ -204,7 +204,7 @@ export default {
 
     // Add some instruments
 
-    for (let i=0; i<4; i++){
+    for (let i=0; i<4; i+=1){
       this.instruments.push({
         freq: 100,
         gain: 0.2,
@@ -218,9 +218,9 @@ export default {
 
     // Create empty patterns
 
-    for(let i=0; i<this.instrumentCount; i++){
+    for(let i=0; i<this.instrumentCount; i+=1){
       this.pattern.push([])
-      for(let j=0; j<this.stepCount; j++){
+      for(let j=0; j<this.stepCount; j+=1){
         this.pattern[i].push({active: false})
       }
     }

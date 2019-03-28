@@ -7,8 +7,9 @@
   "scripts": {
     "build": "parcel build index.html --public-url /drum-machine",
     "deploy": "gh-pages -d dist",
-    "lint": "eslint . --ignore-path .gitignore",
-    "start": "parcel index.html"
+    "lint": "eslint . --ignore-path .gitignore --ext .vue",
+    "start": "parcel index.html",
+    "test": "yarn lint"
   },
   "dependencies": {
     "color": "^3.1.0",
@@ -29,6 +30,7 @@
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
     "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-bliss": "^3.3.0",
     "eslint-plugin-vue": "^5.2.2",
     "eventsource-polyfill": "^0.9.6",
@@ -66,9 +68,15 @@
     "not ie <= 8"
   ],
   "eslintConfig": {
+    "parserOptions": {
+      "parser": "babel-eslint",
+      "sourceType": "module"
+    },
     "extends": [
-      "bliss",
-      "plugin:vue/recommended"
+      "airbnb-base",
+      "plugin:vue/recommended",
+      "prettier",
+      "prettier/vue"
     ]
   }
 }
