@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "parcel build index.html --public-url /drum-machine",
-    "deploy": "gh-pages -d dist",
+    "deploy": "yarn build && gh-pages -d dist",
     "lint": "eslint . --ignore-path .gitignore --ext .vue",
     "start": "parcel index.html --open",
     "test": "yarn build && yarn lint"
