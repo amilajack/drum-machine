@@ -55,4 +55,4 @@ var n,t=arguments[3],r=require("buffer").Buffer;(function(){var r,e=200,u="Unsup
 },{"./components/Machine":"2cyE"}],"HJD/":[function(require,module,exports) {
 "use strict";var e=t(require("vue")),u=t(require("./App"));function t(e){return e&&e.__esModule?e:{default:e}}e.default.config.productionTip=!1,new e.default(u.default).$mount("#app");
 },{"vue":"4673","./App":"6plK"}]},{},["HJD/"], null)
-//# sourceMappingURL=/main.4cc8007b.js.map
+//# sourceMappingURL=/drum-machine/dist/main.4cc8007b.js.map
