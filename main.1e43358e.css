@@ -1,0 +1,117 @@
+.stepbutton[data-v-0c3d87]{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    border: 0px solid rgba(0,0,0,0.5);
+    border-width: 0px 1px 4px 1px;
+    box-shadow: 0px 5px 1px 1px rgba(0,0,0,0.3), inset 0px 0px 0px 3px rgba(0,0,0,0.1);
+    background-color: #cdd7b8;
+    cursor: pointer;
+    margin: 16px 3px;
+    transition: all 0.1s ease-in-out;
+}
+.stepbutton.active[data-v-0c3d87]{
+    border-bottom-width: 1px;
+    box-shadow: 0px 1px 0px 1px rgba(0,0,0,0.3), inset 0px 0px 0px 3px rgba(0,0,0,0.1);;
+    background-color: #BAC2AB;
+}
+.knob[data-v-e415c7]{
+  user-select: none;
+  margin-left: 10px;
+}
+circle.mainCircle[data-v-e415c7]{
+  fill: #CDD8B7;
+  stroke: #A2AB8F;
+  stroke-width: 3px;
+}
+circle.mainCircle.active[data-v-e415c7]{
+  fill :#B4BE9F;
+}
+circle.shadow[data-v-e415c7]{
+  fill: #CDCCCC;
+}
+line[data-v-e415c7] {
+  stroke: #666B5B;
+  stroke-width: 3px;
+}
+text[data-v-e415c7] {
+  font-size: 8px;
+  text-anchor: middle;
+  fill: #777;
+}
+.led[data-v-467a52]{
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+  text-align: center;
+  margin: 2px 3px;
+  transition: all 0.2s ease-in-out;
+}
+.led[data-v-467a52]:before{
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #bbb;
+  box-shadow: inset 0px 0px 1px 2px rgba(0,0,0,0.1);
+}
+.led.lit[data-v-467a52]:before{
+  background-color: #FF762B;
+  box-shadow: 0px 0px 7px 0px #FF762B;
+}
+.button[data-v-9ecd84]{
+    display: inline-block;
+    height: 32px;
+    border-radius: 7px;
+    border: 0px solid rgba(0,0,0,0.5);
+    border-width: 0px 1px 4px 1px;
+    box-shadow: 0px 5px 1px 1px rgba(0,0,0,0.3), inset 0px 0px 0px 3px rgba(0,0,0,0.1);
+    cursor: pointer;
+    margin: 16px 3px;
+    transition: all 0.1s ease-in-out;
+    font-size: 13px;
+    line-height: 32px;
+    padding: 0px 10px;
+    color: #666;
+}
+.button.active[data-v-9ecd84]{
+    border-bottom-width: 1px;
+    box-shadow: 0px 1px 0px 1px rgba(0,0,0,0.3), inset 0px 0px 0px 3px rgba(0,0,0,0.1);
+}
+#title[data-v-554437]{
+  font-size: 30px;
+  color: #555;
+  font-weight: bold;
+}
+#title .smaller[data-v-554437]{
+  font-size: 12px;
+  font-weight: normal;
+}
+#mainMachine[data-v-554437]{
+  margin: 0 auto;
+  margin-top: 50px;
+}
+#knobTitles[data-v-554437]{
+  display: inline-block;
+  margin-left: 6px;
+}
+#controls[data-v-554437]{
+  text-align: left;
+}
+.knobLabel[data-v-554437]{
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 7px;
+  color: #666;
+}
+#app {
+  margin: 0 auto;
+  width: 940px;
+}
+body {
+  font-family: BlinkMacSystemFont, sans-serif;
+  user-select: none;
+  background-color: #eee;
+}
