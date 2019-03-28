@@ -9,7 +9,7 @@
     "deploy": "gh-pages -d dist",
     "lint": "eslint . --ignore-path .gitignore --ext .vue",
     "start": "parcel index.html",
-    "test": "yarn lint"
+    "test": "yarn build && yarn lint"
   },
   "dependencies": {
     "color": "^3.1.0",
@@ -78,5 +78,23 @@
       "prettier",
       "prettier/vue"
     ]
+  },
+  "babel": {
+    "presets": [
+      ["env", {
+        "modules": false,
+        "targets": {
+          "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+        }
+      }],
+      "stage-2"
+    ],
+    "plugins": ["transform-runtime"],
+    "env": {
+      "test": {
+        "presets": ["env", "stage-2"],
+        "plugins": ["istanbul"]
+      }
+    }
   }
 }

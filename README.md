@@ -8,7 +8,7 @@ A Drum machine. Made with [Vue](https://vuejs.org) and the [web audio api](https
 
 See the [live demo here](https://amilajack.github.io/drum-machine/)
 
-## Build Setup
+## Local Setup
 
 ``` bash
 # install dependencies
@@ -36,3 +36,17 @@ yarn build --report
 - [ ] Animated knob changes for preset loading / randomisation
 - [ ] Sampler capabilities
 - [ ] Knob configurable color and size
+
+## Support
+
+If you think this project is awesome please consider supporting it on Patreon 👍 thank you!
+
+<p>
+  <a href="https://www.patreon.com/amilajack">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+  </a>
+</p>
+
+## Related
+
+* **[awesome-audio-resources](https://github.com/amilajack/awesome-audio-resources)**: A list of resources and projects to help learn about audio on the web
