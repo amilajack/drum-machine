@@ -2,7 +2,9 @@
 
 [![demo](static/demo.jpg)](https://amilajack.github.io/drum-machine/)
 
-A Drum machine. Made with [Vue](https://vuejs.org) and the [web audio api](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+[![Build Status](https://dev.azure.com/amilajack/amilajack/_apis/build/status/amilajack.drum-machine?branchName=master)](https://dev.azure.com/amilajack/amilajack/_build/latest?definitionId=13&branchName=master)
+
+#### A Drum machine. Made with [Vue](https://vuejs.org) and the [web audio api](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
 ## Live Demo
 
@@ -32,9 +34,7 @@ yarn build
 - [ ] Keyboard shortcuts
 - [ ] Shareable presets
 - [ ] Effects (distortion, delay, reverb)
-- [ ] Animated knob changes for preset loading / randomisation
 - [ ] Sampler capabilities
-- [ ] Knob configurable color and size
 
 ## Support
 
