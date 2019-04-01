@@ -38,7 +38,9 @@ yarn build
 
 ## Support
 
-If you think this project is awesome please consider supporting it on Patreon 👍 thank you!
+If you love this project, please either:
+* Make a one time donation on [PayPal](https://paypal.me/amilajack)
+* Support me on [Patreon](https://www.patreon.com/amilajack)
 
 <p>
   <a href="https://www.patreon.com/amilajack">
