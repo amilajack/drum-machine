@@ -34,9 +34,7 @@ yarn build
 - [ ] Keyboard shortcuts
 - [ ] Shareable presets
 - [ ] Effects (distortion, delay, reverb)
-- [ ] Animated knob changes for preset loading / randomisation
 - [ ] Sampler capabilities
-- [ ] Knob configurable color and size
 
 ## Support
 
