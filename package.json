@@ -12,7 +12,7 @@
     "test": "yarn build && yarn lint"
   },
   "dependencies": {
-    "color": "^3.1.0",
+    "color": "^3.1.1",
     "lodash": "^4.17.11",
     "vue": "^2.6.10"
   },
