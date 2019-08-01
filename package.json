@@ -30,7 +30,7 @@
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-bliss": "^3.4.0",
     "eslint-plugin-vue": "^5.2.3",
     "eventsource-polyfill": "^0.9.6",
