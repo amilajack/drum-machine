@@ -46,7 +46,7 @@
     "ora": "^4.1.1",
     "parcel-bundler": "^1.12.4",
     "rimraf": "^3.0.2",
-    "semver": "^6.3.0",
+    "semver": "^7.3.5",
     "shelljs": "^0.8.4",
     "url-loader": "^2.3.0",
     "vue-loader": "^15.9.6",
