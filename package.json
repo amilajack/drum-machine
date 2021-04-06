@@ -59,7 +59,7 @@
     "webpack-merge": "^4.2.2"
   },
   "engines": {
-    "node": ">= v4.9.1",
+    "node": ">= v14.16.1",
     "npm": ">= 6.14.12"
   },
   "browserslist": [
