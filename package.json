@@ -56,7 +56,7 @@
     "webpack-bundle-analyzer": "^3.9.0",
     "webpack-dev-middleware": "^3.7.3",
     "webpack-hot-middleware": "^2.25.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^5.8.0"
   },
   "engines": {
     "node": ">= v4.9.1",
