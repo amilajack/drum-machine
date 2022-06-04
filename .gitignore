@@ -12,3 +12,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 .cache
+.parcel-cache
+.vercel
