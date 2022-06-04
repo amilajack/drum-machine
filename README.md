@@ -1,25 +1,21 @@
 # TR-101
 
-[![demo](static/demo.jpg)](https://amilajack.github.io/drum-machine/)
+[![demo](static/demo.jpg)](https://tr101.vercel.app)
 
-[![Build Status](https://dev.azure.com/amilajack/amilajack/_apis/build/status/amilajack.drum-machine?branchName=master)](https://dev.azure.com/amilajack/amilajack/_build/latest?definitionId=13&branchName=master)
-
-#### A Drum machine. Made with [Vue](https://vuejs.org) and the [web audio api](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+#### A Drum machine. Made with [Vue](https://vuejs.org) and the [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
 ## Live Demo
 
-See the [live demo here](https://amilajack.github.io/drum-machine/)
+See the [live demo here](https://tr101.vercel.app)
 
 ## Local Setup
 
-``` bash
-# 💡 If you don't have yarn, run `npm install --global yarn`
-# Install dependencies
-yarn
+```bash
+npm install
 # Start development version of app locally
-yarn start
+npm start
 # Build optimized production version of the app
-yarn build
+npm run build
 ```
 
 ## Planned Additions
@@ -39,8 +35,9 @@ yarn build
 ## Support
 
 If you love this project, please either:
-* Make a one time donation on [PayPal](https://paypal.me/amilajack)
-* Support me on [Patreon](https://www.patreon.com/amilajack)
+
+- Make a one time donation on [PayPal](https://paypal.me/amilajack)
+- Support me on [Patreon](https://www.patreon.com/amilajack)
 
 <p>
   <a href="https://www.patreon.com/amilajack">
@@ -50,4 +47,4 @@ If you love this project, please either:
 
 ## Related
 
-* **[awesome-audio-resources](https://github.com/amilajack/awesome-audio-resources)**: A list of resources and projects to help learn about audio on the web
+- **[awesome-audio-resources](https://github.com/amilajack/awesome-audio-resources)**: A list of resources and projects to help learn about audio on the web
