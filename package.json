@@ -17,6 +17,8 @@
     "vue": "^3.2.39"
   },
   "devDependencies": {
+    "@palette.dev/browser": "^1.5.11",
+    "@palette.dev/plugin-vite": "^1.0.1",
     "@parcel/transformer-vue": "^2.7.0",
     "@vitejs/plugin-vue": "^3.1.0",
     "eslint": "^8.23.1",
@@ -24,8 +26,8 @@
     "vite": "^3.1.1"
   },
   "engines": {
-    "node": ">= v4.9.1",
-    "npm": ">= 6.14.15"
+    "node": ">= 16",
+    "npm": ">= 6"
   },
   "renovate": {
     "extends": [
