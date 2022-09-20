@@ -17,7 +17,7 @@ import {
 } from "@palette.dev/browser";
 
 init({
-  key: "cl8507e78001209miieofddqt",
+  key: "cl85k5b9r050002ucd0lagtw4",
   // Collect click, web vitals, network, performance events, and profiles
   plugins: [events(), vitals(), network(), measure(), profiler()],
 });
