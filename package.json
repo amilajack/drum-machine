@@ -1,9 +1,10 @@
 {
-  "name": "learn-audio",
+  "name": "drum-machine",
   "version": "1.0.0",
   "private": true,
   "description": "Drum machine",
   "author": "Amila Welihinda <amilajack@gmail.com>",
+  "type": "module",
   "scripts": {
     "build": "vite build",
     "dev": "vite",
