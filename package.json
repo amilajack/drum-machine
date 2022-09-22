@@ -18,7 +18,7 @@
     "vue": "^3.2.39"
   },
   "devDependencies": {
-    "@palette.dev/browser": "^1.5.11",
+    "@palette.dev/browser": "^1.5.12",
     "@palette.dev/plugin-vite": "^1.0.1",
     "@parcel/transformer-vue": "^2.7.0",
     "@vitejs/plugin-vue": "^3.1.0",
